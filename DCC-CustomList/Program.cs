@@ -10,7 +10,8 @@ namespace DCC_CustomList
     {
         static void Main(string[] args)
         {
-
+            List<int> lists = new List<int>();
+            
         }
     }
 }

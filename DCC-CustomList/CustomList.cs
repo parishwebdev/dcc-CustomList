@@ -9,11 +9,27 @@ namespace DCC_CustomList
     public class CustomList<T>
     {
 
-        public void Add()
+        T[] genericArray;
+
+        int capacity;
+        int count;
+
+        public int Capacity { get; set; }
+        public int Count { get; set; }
+
+        public T[] GenericArray { get; set; }
+
+        public CustomList()
+        {
+
+            GenericArray = new T[Capacity];
+        }
+
+        public void Add(T value)
         {
 
         }
-        public void Remove()
+        public void Remove(T value)
         {
 
         }
