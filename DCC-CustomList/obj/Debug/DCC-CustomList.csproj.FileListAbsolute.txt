@@ -1,0 +1,7 @@
+C:\Users\Matthew_2\source\repos\DCC\DCC-CustomList\DCC-CustomList\bin\Debug\DCC-CustomList.exe.config
+C:\Users\Matthew_2\source\repos\DCC\DCC-CustomList\DCC-CustomList\bin\Debug\DCC-CustomList.exe
+C:\Users\Matthew_2\source\repos\DCC\DCC-CustomList\DCC-CustomList\bin\Debug\DCC-CustomList.pdb
+C:\Users\Matthew_2\source\repos\DCC\DCC-CustomList\DCC-CustomList\obj\Debug\DCC-CustomList.csprojResolveAssemblyReference.cache
+C:\Users\Matthew_2\source\repos\DCC\DCC-CustomList\DCC-CustomList\obj\Debug\DCC-CustomList.csproj.CoreCompileInputs.cache
+C:\Users\Matthew_2\source\repos\DCC\DCC-CustomList\DCC-CustomList\obj\Debug\DCC-CustomList.exe
+C:\Users\Matthew_2\source\repos\DCC\DCC-CustomList\DCC-CustomList\obj\Debug\DCC-CustomList.pdb
