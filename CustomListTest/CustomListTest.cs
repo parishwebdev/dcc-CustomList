@@ -137,7 +137,8 @@ namespace CustomListTest
             int expectedResult = 4;
             //Act
             string actualResult = list.ToString();
-            Assert.AreEqual(expectedResult, actualResult.Length);
+            int actualLength = actualResult.Length;
+            Assert.AreEqual(expectedResult, actualLength);
         }
 
     }

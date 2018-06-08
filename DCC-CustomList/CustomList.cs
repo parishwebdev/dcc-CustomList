@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DCC_CustomList
 {
-    public class CustomList<T>  // : IEnumerable //<T>
+    public class CustomList<T> : IEnumerable 
     {
         T[] genericArray;
 
@@ -155,7 +155,15 @@ namespace DCC_CustomList
 
         }
 
- 
+        public IEnumerator GetEnumerator()
+        {
+            for (int i = 0; i < GenericArray.Length; i++)
+            {
+                yield return GenericArray[i];
+            }
+        }
+
+
 
 
 

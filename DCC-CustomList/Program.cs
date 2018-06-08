@@ -25,7 +25,12 @@ namespace DCC_CustomList
             myList2.Add("Hello");
             myList2.Add("World");
 
-            Console.WriteLine(myList2.ToString());
+            //Console.WriteLine(myList2.ToString());
+            Console.WriteLine("Iteratoring");
+            for (int i = 0; i < myList2.Count; i++)
+            {
+                Console.WriteLine(myList2[i]);
+            }
 
             Console.ReadLine();
         }
