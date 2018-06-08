@@ -38,6 +38,7 @@ namespace DCC_CustomList
                 if (item.Equals(value))
                 {
                     contains = true;
+                   
                 }
                 else
                 {
@@ -46,15 +47,16 @@ namespace DCC_CustomList
             }
             return contains;
         }
-
-        public int IndexOf(T value)
+        
+        public int IndexOf(T value) 
         {
             int index = 0;
             for (int i = 0; i < GenericArray.Length; i++)
             {
-                if (this.Contains(value))
+                if (GenericArray[i].Equals(value))
                 {
                     index = i;
+                    break;
                 }
                 else
                 {
@@ -111,8 +113,32 @@ namespace DCC_CustomList
             }
             else
             {
-
+                T[] tempArray = new T[Capacity];
+                for (int i = 0; i < GenericArray.Length; i++)
+                {
+                    if (this.IndexOf(value) == i)
+                    {
+                        Count--;
+                        continue;
+                    }
+                    else
+                    {
+                        tempArray[i] = GenericArray[i];
+                    }
+                }
+                GenericArray = tempArray;
             }
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < Count; i++)
+            {
+                sb.Append(GenericArray[i] + " ");
+            }
+            return sb.ToString();
         }
 
         //Indexer

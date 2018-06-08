@@ -69,5 +69,76 @@ namespace CustomListTest
             list.Remove(value);
         }
 
+        [TestMethod]
+        public void Remove_And_Count_Is_One_Shorter_Than_Before()
+        {
+            //Arrange
+            CustomList<int> list = new CustomList<int>();
+
+            int valueToRemove = 54;
+
+            list.Add(2);
+            list.Add(6);
+            list.Add(18);
+            list.Add(54);
+            list.Add(162);
+            list.Add(486);
+            int expectedCount = 5;
+            //Act
+            list.Remove(valueToRemove);
+            int actualCount = list.Count;
+            //Assert
+            Assert.AreEqual(expectedCount,actualCount);
+        }
+
+        [TestMethod]
+        public void Value_Not_Contained_In_List_When_Removed()
+        {
+            //Arrange
+            CustomList<int> list = new CustomList<int>();
+
+            int valueToRemove = 54;
+
+            list.Add(2);
+            list.Add(6);
+            list.Add(18);
+            list.Add(54);
+            list.Add(162);
+            list.Add(486);
+            bool expectedResult = false;
+            //Act
+            list.Remove(valueToRemove);
+            bool actualResult = list.Contains(valueToRemove);
+            Assert.AreEqual(expectedResult,actualResult);
+        }
+
+        [TestMethod]
+        public void List_Values_Returned_As_String()
+        {
+            //Arrange
+            CustomList<int> list = new CustomList<int>();
+            
+            list.Add(2);
+            list.Add(5);
+            string expectedResult = "2 5 ";
+            //Act
+            string actualResult = list.ToString();
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestMethod]
+        public void String_Returned_Length()
+        {
+            //Arrange
+            CustomList<int> list = new CustomList<int>();
+
+            list.Add(2);
+            list.Add(5);
+            int expectedResult = 4;
+            //Act
+            string actualResult = list.ToString();
+            Assert.AreEqual(expectedResult, actualResult.Length);
+        }
+
     }
 }
