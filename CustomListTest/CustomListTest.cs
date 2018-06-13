@@ -141,5 +141,73 @@ namespace CustomListTest
             Assert.AreEqual(expectedResult, actualLength);
         }
 
+        [TestMethod]
+        public void Add_Operater_Check_If_Value_At_Specfic_Index()
+        {
+            //Arrange
+            CustomList<int> list1 = new CustomList<int>();
+            CustomList<int> list2 = new CustomList<int>();
+            list1.Add(2);
+            list1.Add(5);
+            list2.Add(6);
+            list2.Add(9);
+            CustomList<int> expectedList = new CustomList<int>() { 2, 5, 6, 9 };
+            int expectedResult = 6;
+            int indexToCheck = 2;
+            //Act
+            CustomList<int> actualList = list1 + list2;
+            int actualResult = actualList[indexToCheck];
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult);
+
+        }
+
+        [TestMethod]
+        public void Add_Operater_Check_New_List_Count()
+        {
+            //Arrange
+            CustomList<int> list1 = new CustomList<int>();
+            CustomList<int> list2 = new CustomList<int>();
+            list1.Add(2);
+            list1.Add(5);
+            list2.Add(6);
+            list2.Add(9);
+            CustomList<int> expectedList = new CustomList<int>() { 2, 5, 6, 9 };
+            int expectedCount = 4;
+            //Act
+            CustomList<int> actualList = list1 + list2;
+            int actualCount = actualList.Count;
+            //Assert
+            Assert.AreEqual(actualCount, expectedCount);
+        }
+        [TestMethod]
+        public void Subtract_Operater_Check_Value_At_Specific_Index()
+        {
+            //Arrange
+            CustomList<int> list1 = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> list2 = new CustomList<int>() { 4, 1, 6 };
+            CustomList<int> expectedList = new CustomList<int>() {2,3};
+            int expectedIndex = 1;
+            int valueToFind = 3;
+            //Act
+            CustomList<int> actualList = list1 - list2;
+            int actualIndex = actualList.IndexOf(valueToFind);
+            //Assert
+            Assert.AreEqual(expectedIndex, actualIndex);
+        }
+        [TestMethod]
+        public void Subtract_Operater_Check_Count_Of_Resulting_List()
+        {
+            //Arrange
+            CustomList<int> list1 = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> list2 = new CustomList<int>() { 4, 1, 6 };
+            CustomList<int> expectedList = new CustomList<int>() { 2, 3 };
+            int expectedCount = 2;
+            //Act
+            CustomList<int> actualList = list1 - list2;
+            int actualCount = actualList.Count;
+            //Assert
+            Assert.AreEqual(expectedCount, actualCount);
+        }
     }
 }

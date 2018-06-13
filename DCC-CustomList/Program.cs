@@ -10,27 +10,55 @@ namespace DCC_CustomList
     {
         static void Main(string[] args)
         {
-           // List<int> lists = new List<int>();
-            CustomList<int> myList = new CustomList<int>();
+            /* */
+            //List<int> lists = new List<int>(){1, 2, 3};
+            //CustomList<int> myList = new CustomList<int>() {1,2,3};
 
-            myList.Add(1); //0
-            myList.Add(22); //1
-            myList.Add(59); //2
-            myList.Add(559); //3
-            
-            Console.WriteLine( myList.IndexOf(59));
+
+            //CustomList<int> myList1 = new CustomList<int>() {4,1,6};
+
+
+            //CustomList<int> subList = myList - myList1;
+
+
+
+            //for (int i = 0; i < subList.Count; i++)
+            //{
+            //    Console.WriteLine(subList[i]);
+            //} /**/
+
+
+
+            CustomList<int> testList1 = new CustomList<int>();
+            testList1.Add(1);
+            testList1.Add(2);
+            testList1.Add(3);
+            testList1.Add(9);
+            testList1.Add(6);
+            testList1.Remove(9);
+
+            for (int i = 0; i < testList1.Count; i++)
+            {
+                Console.WriteLine(testList1[i]);
+            }
+
+
+
+            /*
 
             CustomList<string> myList2 = new CustomList<string>();
 
             myList2.Add("Hello");
             myList2.Add("World");
 
+
+            
             //Console.WriteLine(myList2.ToString());
             Console.WriteLine("Iteratoring");
             for (int i = 0; i < myList2.Count; i++)
             {
                 Console.WriteLine(myList2[i]);
-            }
+            } */
 
             Console.ReadLine();
         }

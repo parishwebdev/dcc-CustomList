@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DCC_CustomList
 {
-    public class CustomList<T> : IEnumerable 
+    public class CustomList<T> : IEnumerable
     {
         T[] genericArray;
 
@@ -28,24 +28,19 @@ namespace DCC_CustomList
             Capacity = 5;
             GenericArray = new T[Capacity];
         }
-        
+
+
 
         public bool Contains(T value)
         {
-            bool contains = false;
-            foreach (var item in GenericArray)
+            for (int i = 0; i < GenericArray.Length; i++)
             {
-                if (item.Equals(value))
+                if (value.Equals(GenericArray[i]))
                 {
-                    contains = true;
-                   
-                }
-                else
-                {
-                    contains = false;
+                    return true;
                 }
             }
-            return contains;
+            return false;
         }
         
         public int IndexOf(T value) 
@@ -123,7 +118,14 @@ namespace DCC_CustomList
                     }
                     else
                     {
-                        tempArray[i] = GenericArray[i];
+                        if (this.IndexOf(value) < i)
+                        {
+                            tempArray[i - 1] = GenericArray[i];
+                        }
+                        else
+                        {
+                            tempArray[i] = GenericArray[i];
+                        }
                     }
                 }
                 GenericArray = tempArray;
@@ -150,10 +152,17 @@ namespace DCC_CustomList
 
         //-----------------------------
         //Come to Later
-        public void Zip()
+        
+       public void Zip()
         {
 
         }
+        /*
+        private Enumerable<T> ZipIteratior(T[] tFirst, T tSecond, T tResult)
+        {
+            IEnumerable e1 = 
+        }*/
+        
 
         public IEnumerator GetEnumerator()
         {
@@ -163,13 +172,45 @@ namespace DCC_CustomList
             }
         }
 
-
-
-
-
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return (IEnumerator)GetEnumerator();
+        }
         /*
           Overriding + and -
          */
+        public static CustomList<T> operator+(CustomList<T> c1, CustomList<T> c2) 
+        {
+            CustomList<T> list = new CustomList<T>();
 
+            for (int i = 0; i < c1.Count; i++)
+            {
+                list.Add(c1[i]);
+            }
+            for (int i = 0; i < c2.Count; i++)
+            {
+                list.Add(c2[i]);
+            }
+            return list;
+        }
+        public static CustomList<T> operator-(CustomList<T> c1, CustomList<T> c2)
+        {
+            CustomList<T> list = c1;
+            for (int i = 0; i < c2.Count; i++)
+            {
+                if (c1.Contains(c2[i]))
+                {
+
+                    list.Remove(c2[i]);
+                } 
+            }
+            return list;
+        }
+            
+
+
+      
+        
+        
     }
 }
