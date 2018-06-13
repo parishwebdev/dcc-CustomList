@@ -153,16 +153,40 @@ namespace DCC_CustomList
         //-----------------------------
         //Come to Later
         
-       public void Zip()
+       public  CustomList<T> Zip( CustomList<T> c2)
         {
-
+           CustomList<T> resultList = new CustomList<T>();
+           for (int i = 0; i < this.Count || i < c2.Count; i++)
+            {
+               if (CheckCountForZip(this,i))
+                {
+                    resultList.Add(c2[i]);
+                }
+                else if (CheckCountForZip(c2, i))
+                {
+                    resultList.Add(this[i]);
+                }
+                else
+                {
+                    resultList.Add(this[i]);
+                    resultList.Add(c2[i]);
+                }
+            }
+            return resultList;
         }
-        /*
-        private Enumerable<T> ZipIteratior(T[] tFirst, T tSecond, T tResult)
+
+        private bool CheckCountForZip(CustomList<T> listToCheck, int count)
         {
-            IEnumerable e1 = 
-        }*/
-        
+            if (listToCheck.Count <= count)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 
         public IEnumerator GetEnumerator()
         {
@@ -176,9 +200,8 @@ namespace DCC_CustomList
         {
             return (IEnumerator)GetEnumerator();
         }
-        /*
-          Overriding + and -
-         */
+        
+
         public static CustomList<T> operator+(CustomList<T> c1, CustomList<T> c2) 
         {
             CustomList<T> list = new CustomList<T>();
@@ -196,7 +219,7 @@ namespace DCC_CustomList
         public static CustomList<T> operator-(CustomList<T> c1, CustomList<T> c2)
         {
             CustomList<T> list = c1;
-            for (int i = 0; i < c2.Count; i++)
+            for (int i = 0; i < c1.Count && i < c2.Count; i++)
             {
                 if (c1.Contains(c2[i]))
                 {
@@ -207,9 +230,6 @@ namespace DCC_CustomList
             return list;
         }
             
-
-
-      
         
         
     }
