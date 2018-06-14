@@ -39,7 +39,7 @@ namespace DCC_CustomList
                 Console.WriteLine(testList1[i]);
             }*/
 
-             CustomList<int> myList = new CustomList<int>() {1,2,3,7};
+            /* CustomList<int> myList = new CustomList<int>() {1,2,3,7};
 
              CustomList<int> myList1 = new CustomList<int>() {4,5,6};
 
@@ -48,7 +48,18 @@ namespace DCC_CustomList
              for (int i = 0; i < resultList.Count; i++)
              {
                  Console.Write(resultList[i] + " ");
-             }
+             }*/
+
+            CustomList<int> myList = new CustomList<int>() { 1, 2, 3, 7 };
+            CustomList<int> myList1 = new CustomList<int>() { 4, 5, 6 };
+
+            CustomList<int> zipList = myList.Zip(myList1);
+            CustomList<int> resultList = CustomList<int>.IntSort(zipList);
+
+            for (int i = 0; i < resultList.Count; i++)
+            {
+                Console.Write(resultList[i] + " ");
+            }
 
             /*
 

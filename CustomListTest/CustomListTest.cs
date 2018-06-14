@@ -239,6 +239,37 @@ namespace CustomListTest
             Assert.AreEqual(expectedResult, actualResult);
 
         }
-        
+
+        [TestMethod]
+        public void Zip_Check_New_List_Count()
+        {
+            //Arrange
+            CustomList<int> myList1 = new CustomList<int>() { 1, 2, 3, 7};
+            CustomList<int> myList2 = new CustomList<int>() { 4, 5, 6 };
+            int expectedResult = 7;
+            //Act
+            CustomList<int> actualZipList = myList1.Zip(myList2);
+            int actualResult = actualZipList.Count;
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult);
+
+        }
+
+        [TestMethod]
+        public void IntSort_Check_Index()
+        {
+            //Arrange
+            CustomList<int> myList1 = new CustomList<int>() { 1, 2, 3, 7 };
+            CustomList<int> myList2 = new CustomList<int>() { 4, 5, 6 };
+            CustomList<int> listToSort = myList1 + myList2;
+            int expectedResult = 4;
+            //Act
+            CustomList<int> resultList = CustomList<int>.IntSort(listToSort);
+            int actualResult = resultList.IndexOf(5);
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult);
+
+        }
+
     }
 }

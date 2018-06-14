@@ -28,9 +28,7 @@ namespace DCC_CustomList
             Capacity = 5;
             GenericArray = new T[Capacity];
         }
-
-
-
+        
         public bool Contains(T value)
         {
             for (int i = 0; i < GenericArray.Length; i++)
@@ -77,6 +75,7 @@ namespace DCC_CustomList
             Count++;
             
         }
+
         public void CheckCount()
         {
             if (Count > Capacity - 3)
@@ -98,8 +97,7 @@ namespace DCC_CustomList
             GenericArray = tempArray;
 
         }
-
-
+        
         public void Remove(T value)
         {
             if(this.IndexOf(value) == -1)
@@ -142,16 +140,12 @@ namespace DCC_CustomList
             }
             return sb.ToString();
         }
-
-        //Indexer
+        
         public T this[int i]
         {
             get { return GenericArray[i]; }
             set { GenericArray[i] = value; }
         }
-
-        //-----------------------------
-        //Come to Later
         
        public  CustomList<T> Zip( CustomList<T> c2)
         {
@@ -186,8 +180,7 @@ namespace DCC_CustomList
                 return false;
             }
         }
-
-
+        
         public IEnumerator GetEnumerator()
         {
             for (int i = 0; i < GenericArray.Length; i++)
@@ -195,13 +188,7 @@ namespace DCC_CustomList
                 yield return GenericArray[i];
             }
         }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return (IEnumerator)GetEnumerator();
-        }
         
-
         public static CustomList<T> operator+(CustomList<T> c1, CustomList<T> c2) 
         {
             CustomList<T> list = new CustomList<T>();
@@ -229,8 +216,34 @@ namespace DCC_CustomList
             }
             return list;
         }
-            
-        
-        
+
+        /*
+          GnomeSort:
+          Why I choose it was it sounded cool. Also, how the way it used indexs I though was nice.
+        */
+        public static CustomList<int> IntSort(CustomList<int> listToSort) 
+        {
+            int idx = 0;
+            int c = listToSort.Count;
+
+            while (idx < c)
+            {
+                if (idx == 0)
+                    idx++;
+                if (listToSort[idx] >= listToSort[idx - 1])
+                    idx++;
+                else
+                {
+                    int temp = 0;
+                    temp = listToSort[idx];
+                    listToSort[idx] = listToSort[idx - 1];
+                    listToSort[idx - 1] = temp;
+                    idx--;
+                }
+            }
+
+            return listToSort;
+        }
+
     }
 }
